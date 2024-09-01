@@ -3,6 +3,8 @@ import jwt from "jsonwebtoken"
 import bcrypt from 'bcryptjs'
 import validator from "validator";
 
+//const bcrypt = require('bcryptjs');
+
 const loginUser = async(req,res)=>{
         const {email,password} = req.body;
         try{
