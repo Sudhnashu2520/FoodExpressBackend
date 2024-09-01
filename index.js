@@ -1,5 +1,5 @@
 import express from "express"
-import cors from 'cors'
+// import cors from 'cors'
 import { connectDB } from "./config/db.js";
 import  foodRouter  from "./routes/foodRoute.js";
 import userRouter from "./routes/userRoute.js";
@@ -7,11 +7,20 @@ import 'dotenv/config'
 import cartRouter from "./routes/cartRoute.js";
 
 
-const app = express()
+
 const port = process.env.PORT || 4000;
 
 app.use(express.json())
-app.use(cors())
+const cors = require('cors');
+
+const app = express();
+
+// Use CORS middleware
+app.use(cors({
+    origin: 'https://foodexpressadminpanel.onrender.com', // Your frontend URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
+    credentials: true // If you need to send cookies or other credentials
+}));
 app.use('/images',express.static('uploads'))
 app.use('/api/user',userRouter)
 app.use('/api/cart',cartRouter)
