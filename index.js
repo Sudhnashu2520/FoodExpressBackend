@@ -18,7 +18,7 @@ app.use(express.json())
 // Use CORS middleware
 app.use(cors())
 app.use(cors({
-    origin: 'https://foodexpressadminpanel.onrender.com', // Your frontend URL
+    origin: '*', // Your frontend URL
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
     credentials: true // If you need to send cookies or other credentials
 }));
@@ -26,7 +26,7 @@ app.use('/images',express.static('uploads'))
 app.use('/api/user',userRouter)
 app.use('/api/cart',cartRouter)
 
-
+app.options('*', cors());
 connectDB()
 
 app.get("/",(req,res)=>{
