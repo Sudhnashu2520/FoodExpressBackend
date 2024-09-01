@@ -1,5 +1,5 @@
 import express from "express"
-// import cors from 'cors'
+import cors from 'cors'
 import { connectDB } from "./config/db.js";
 import  foodRouter  from "./routes/foodRoute.js";
 import userRouter from "./routes/userRoute.js";
@@ -11,7 +11,7 @@ import cartRouter from "./routes/cartRoute.js";
 const port = process.env.PORT || 4000;
 
 app.use(express.json())
-const cors = require('cors');
+// const cors = require('cors');
 
 const app = express();
 
