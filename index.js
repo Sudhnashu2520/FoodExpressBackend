@@ -7,15 +7,16 @@ import 'dotenv/config'
 import cartRouter from "./routes/cartRoute.js";
 
 
-
+const app = express()
 const port = process.env.PORT || 4000;
 
 app.use(express.json())
-// const cors = require('cors');
+//const cors = require('cors');
 
-const app = express();
+//const app = express();
 
 // Use CORS middleware
+app.use(cors())
 app.use(cors({
     origin: 'https://foodexpressadminpanel.onrender.com', // Your frontend URL
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
